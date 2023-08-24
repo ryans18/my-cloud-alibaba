@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: consumer-config
+  cloud:
+    nacos:
+      config:
+        server-addr: 139.155.68.87:8848

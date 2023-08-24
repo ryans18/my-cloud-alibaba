@@ -6,4 +6,5 @@ spring:
   cloud:
     nacos:
       discovery:
+        ephemeral: false
         server-addr: 139.155.68.87:8848
