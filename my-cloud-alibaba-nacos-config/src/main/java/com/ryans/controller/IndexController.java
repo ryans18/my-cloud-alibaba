@@ -11,18 +11,23 @@ import org.springframework.web.bind.annotation.RestController;
  * Introduction :
  */
 @RestController
-@RefreshScope
+@RefreshScope  // 动态刷新
 public class IndexController {
 
     // 不能用user，user会去拿系统变量，这里是bxc2019003
-    @Value("${my.name}")
+   /* @Value("${my.name}")
     private String name;
     @Value("${my.age}")
     private String age;
-
     @GetMapping("/getUser")
     public String getUser() {
-//        return String.format("{name: %s, age: %s}", name, age);
-        return String.format("{name: %s}", name);
+        return String.format("{name: %s, age: %s}", name, age);
+    }*/
+
+    @Value("${source}")
+    private String source;
+    @GetMapping("/source")
+    public String source() {
+        return source;
     }
 }
