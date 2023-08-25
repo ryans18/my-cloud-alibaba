@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: consumer-sentinel
+  cloud:
+    sentinel:
+      web-context-unify: false
+      transport:
+        dashboard: 127.0.0.1:8890
+      eager: true  # 动态刷新

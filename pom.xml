@@ -11,6 +11,7 @@
         <module>my-cloud-alibaba-user</module>
         <module>my-cloud-alibaba-consumer</module>
         <module>my-cloud-alibaba-nacos-config</module>
+        <module>my-cloud-alibaba-sentinel</module>
     </modules>
     <packaging>pom</packaging>
     <properties>
