@@ -1,5 +1,6 @@
 package com.ryans.controller;
 
+import com.ryans.fegin.UserFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +20,17 @@ public class HelloController {
     private RestTemplate restTemplate;
     private static final String REST_URL = "http://provider-user";
 
+    @Autowired
+    private UserFeignService userFeignService;
+
     @GetMapping("/say")
     public String say(String name) {
         String url = REST_URL + "/hello/say?name=" + name;
         return restTemplate.getForObject(url, String.class);
+    }
+
+    @GetMapping("/say2")
+    public String say2(String name) {
+        return userFeignService.say(name);
     }
 }

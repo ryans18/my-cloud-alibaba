@@ -1,6 +1,8 @@
 package com.ryans.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.ryans.entity.User;
+import com.ryans.result.Result;
 import com.ryans.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,5 +30,12 @@ public class UserController {
     public String save() {
         userService.queryUser();
         return "保存成功";
+    }
+
+    @GetMapping("/getUser")
+    public Result<User> getUser(Long id) {
+        User user = userService.getUser(id);
+        if (user == null) throw new RuntimeException("未找到");
+        return Result.data(user);
     }
 }

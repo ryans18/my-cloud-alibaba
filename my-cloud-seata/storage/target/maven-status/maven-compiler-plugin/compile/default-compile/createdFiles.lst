@@ -1,0 +1,5 @@
+com\ryans\controller\StorageController.class
+com\ryans\mapper\StorageMapper.class
+com\ryans\StorageApplication.class
+com\ryans\service\impl\StorageServiceImpl.class
+com\ryans\service\StorageService.class

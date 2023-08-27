@@ -1,0 +1,6 @@
+E:\code\java\study\my-cloud-alibaba\my-cloud-alibaba-consumer\src\main\java\com\ryans\ConsumerApplication.java
+E:\code\java\study\my-cloud-alibaba\my-cloud-alibaba-consumer\src\main\java\com\ryans\fegin\config\FeignConfig.java
+E:\code\java\study\my-cloud-alibaba\my-cloud-alibaba-consumer\src\main\java\com\ryans\controller\HelloController.java
+E:\code\java\study\my-cloud-alibaba\my-cloud-alibaba-consumer\src\main\java\com\ryans\fegin\interceptor\FeignRequestInterceptor.java
+E:\code\java\study\my-cloud-alibaba\my-cloud-alibaba-consumer\src\main\java\com\ryans\fegin\UserFeignService.java
+E:\code\java\study\my-cloud-alibaba\my-cloud-alibaba-consumer\src\main\java\com\ryans\fegin\errorImpl\UserFeignServiceError.java

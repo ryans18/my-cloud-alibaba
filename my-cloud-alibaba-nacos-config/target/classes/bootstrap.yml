@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: consumer-config
+  cloud:
+    nacos:
+      config:
+        server-addr: 139.155.68.87:8848
+        namespace: test
+        shared-configs:
+          - dataId: share1
+            refresh: true
+          - dataId: share2
+            refresh: true
+        extension-configs:
+          - dataId: ext1
+            refresh: true
+          - dataId: ext2
+            refresh: true
