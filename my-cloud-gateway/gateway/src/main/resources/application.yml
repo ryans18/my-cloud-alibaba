@@ -38,3 +38,15 @@ spring:
             - Host=localhost
 #          filters:
 #            - StripPrefix=1
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8890
+      # 配置限流后的响应内容
+      scg:
+        fallback:
+          # 两种模式，一种是response返回文字提示，一种是redirect，重定向跳转，需要同时配置red
+          mode: response
+          # 响应状态码
+          response-status: 426
+          # 响应体
+          response-body: '{"code": 503, "msg": "限流了，稍后重试！"}'

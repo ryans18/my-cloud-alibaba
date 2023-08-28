@@ -9,17 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>my-cloud-gateway</artifactId>
+    <artifactId>my-cloud-alibaba-rocketmq</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>gateway-user</module>
-        <module>gateway-product</module>
-        <module>gateway</module>
+        <module>rocketmq-consumer</module>
+        <module>rocketmq-producer</module>
     </modules>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-    </properties>
 
 </project>
