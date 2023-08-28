@@ -1,6 +1,0 @@
-com\ryans\fegin\interceptor\FeignRequestInterceptor.class
-com\ryans\fegin\errorImpl\UserFeignServiceError.class
-com\ryans\fegin\UserFeignService.class
-com\ryans\controller\HelloController.class
-com\ryans\ConsumerApplication.class
-com\ryans\fegin\config\FeignConfig.class
