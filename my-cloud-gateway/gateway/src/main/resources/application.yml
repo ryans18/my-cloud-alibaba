@@ -1,0 +1,40 @@
+server:
+  port: 80
+spring:
+  application:
+    name: gateway-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 139.155.68.87:8848
+    gateway:
+      routes:
+        - id: user
+#          uri: http://localhost:8080  #  这里是uri不是url；未使用负载均衡，直接用ip+port访问
+          uri: lb://gateway-user
+          predicates:  # 断言
+#            - Path=/user/**
+#            - Before=2023-08-28T15:04+08:00[Asia/Shanghai]
+#            - Cookie=serviceName,user
+#            - Header=sName,user
+#            - Method=GET
+            - Host=127.0.0.1
+          filters:
+#            - StripPrefix=1
+            - AddRequestHeader=name,ryans
+            - RemoveJsonAttributesResponseBody=msg
+            - name: My
+              args:
+                name: ryans
+        - id: product
+          uri: lb://gateway-product
+          predicates:  # 断言
+
+          #            - After=2023-08-28T15:04+08:00[Asia/Shanghai]
+          #            - Cookie=serviceName,product
+#            - Path=/product/**
+#            - Header=sName,product
+#            - Method=POST
+            - Host=localhost
+#          filters:
+#            - StripPrefix=1

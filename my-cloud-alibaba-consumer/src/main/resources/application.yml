@@ -7,3 +7,11 @@ spring:
     nacos:
       discovery:
         server-addr: 139.155.68.87:8848
+    gateway:
+      routes:
+        - id: user
+          url: http://localhost:8080/user
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
