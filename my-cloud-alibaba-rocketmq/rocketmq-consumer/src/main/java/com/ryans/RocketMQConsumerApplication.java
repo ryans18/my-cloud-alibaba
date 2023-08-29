@@ -31,12 +31,39 @@ public class RocketMQConsumerApplication {
     public Consumer<Message<String>> consumer() {
         return msg -> {
             String tagHeaderKey = RocketMQMessageConverterSupport.toRocketHeaderKey(MessageConst.PROPERTY_TAGS);
-            System.out.println(Thread.currentThread().getName() + " Receive New Messages: " + msg.getPayload() + " TAG:" +
+            System.out.println(" 收到消息: " + msg.getPayload() + " TAG:" +
                     msg.getHeaders().get(tagHeaderKey).toString());
             try {
                 Thread.sleep(100);
             } catch (InterruptedException ignored) {
             }
+        };
+    }
+
+    @Bean
+    public Consumer<Message<String>> txConsumer() {
+        return msg -> {
+            Object arg = msg.getHeaders();
+            log.info("收到消息: " + msg.getPayload() + " ARG:"
+                    + arg.toString());
+        };
+    }
+    @Bean
+    public Consumer<Message<String>> sqlConsumer() {
+        return msg -> {
+            String colorHeaderKey = "color";
+            String priceHeaderKey = "price";
+            log.info("tag收到消息: " + msg.getPayload() + " COLOR:" +
+                    msg.getHeaders().get(colorHeaderKey).toString() + " " +
+                    "PRICE: " + msg.getHeaders().get(priceHeaderKey).toString());
+        };
+    }
+    @Bean
+    public Consumer<Message<String>> tagConsumer() {
+        return msg -> {
+            Object arg = msg.getHeaders();
+            log.info("tag收到消息: " + msg.getPayload() + " ARG:"
+                    + arg.toString());
         };
     }
 }

@@ -9,9 +9,16 @@ spring:
         binder:
           name-server: 139.155.68.87:9876
         bindings:  # 定义
-          producer-out-0:
+          producer-out-1:
             producer:
               group: output_1
+              transactionListener: myTransactionListener
+              producerType: Trans
+#              messageQueueSelector: orderlyMessageQueueSelector
       bindings:  # 使用，与定义的producer对应
         producer-out-0:
-          destination: orderly
+          destination: tx
+        producer-out-1:
+          destination: text_topic
+        producer-out-2:
+          destination: sql_topic

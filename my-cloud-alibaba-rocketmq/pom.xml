@@ -14,8 +14,6 @@
     <modules>
         <module>rocketmq-consumer</module>
         <module>rocketmq-producer</module>
-        <module>rocketmq</module>
-        <module>rabitmq-client</module>
     </modules>
 
 

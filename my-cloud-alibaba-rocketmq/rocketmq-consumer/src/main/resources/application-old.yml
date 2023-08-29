@@ -1,0 +1,19 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: rocket-consumer
+  cloud:
+    stream:
+      function:
+        definition: consumer;txConsumer
+      rocketmq:
+        binder:
+          name-server: 139.155.68.87:9876
+      bindings:
+        consumer-in-0:
+          destination: test_topic
+          group: test-consumer
+        txConsumer-in-0:
+          destination: tx
+          group: tx-consumer

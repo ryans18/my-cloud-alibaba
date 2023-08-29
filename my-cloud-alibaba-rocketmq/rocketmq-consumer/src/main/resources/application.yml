@@ -2,19 +2,28 @@ server:
   port: 8081
 spring:
   application:
-    name: rocketmq-consumer
+    name: rocket-consumer
   cloud:
     stream:
       function:
-        definition: consumer;
+        definition: sqlConsumer;tagConsumer
       rocketmq:
         binder:
           name-server: 139.155.68.87:9876
         bindings:
-          consumer-in-0:  # consumer 这个名称与function.definition中对应
+          sqlConsumer-in-0:
             consumer:
-              subscription: 'TagA || TagC || TagD'
+              subscription: sql:(color in ('red','green') and price>3)  # color为红色或绿色,并且价格大于3
+          tagConsumer-in-0:
+            consumer:
+              subscription: tag1||tag2
+          consumer-in-0:
+            consumer:
+              messageModel: BROADCASTING  # 广播消息
       bindings:
-        consumer-in-0:
-          destination: test_topic
-
+        sqlConsumer-in-0:
+          destination: sql_topic  # 主题
+          group: sql-group
+        tagConsumer-in-0:
+          destination: sql_topic
+          group: tag-group
