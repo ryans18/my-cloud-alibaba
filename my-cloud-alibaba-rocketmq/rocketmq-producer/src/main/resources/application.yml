@@ -14,4 +14,4 @@ spring:
               group: output_1
       bindings:  # 使用，与定义的producer对应
         producer-out-0:
-          destination: test_topic
+          destination: orderly

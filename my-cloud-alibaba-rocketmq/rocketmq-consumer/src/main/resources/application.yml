@@ -2,15 +2,19 @@ server:
   port: 8081
 spring:
   application:
-    name: rabbitmq-consumer
+    name: rocketmq-consumer
   cloud:
     stream:
       function:
-        definition: consumer
+        definition: consumer;
       rocketmq:
         binder:
           name-server: 139.155.68.87:9876
+        bindings:
+          consumer-in-0:  # consumer 这个名称与function.definition中对应
+            consumer:
+              subscription: 'TagA || TagC || TagD'
       bindings:
-        consumer-in-0:  # consumer 这个名称与function.definition中对应
+        consumer-in-0:
           destination: test_topic
-          group: test-consumer
+
