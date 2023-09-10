@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TbOrder {
-    private Integer id;
+    private Integer orderId;
     private Integer userId;
     private String code;
     private int num;

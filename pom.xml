@@ -15,6 +15,7 @@
         <module>my-cloud-seata</module>
         <module>my-cloud-gateway</module>
         <module>my-cloud-alibaba-rocketmq</module>
+        <module>my-cloud-alibaba-order</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

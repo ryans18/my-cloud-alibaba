@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: service-order
+  datasource:
+    url: jdbc:mysql://139.155.68.87:3306/order?useUnicode=true&characterset=utf8
+    username: root
+    password: 123456
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 139.155.68.87:8848
+
+mybatis:
+  type-aliases-package: com.ryans.entity
+  mapper-locations: classpath:mybatis/mapper/*.xml

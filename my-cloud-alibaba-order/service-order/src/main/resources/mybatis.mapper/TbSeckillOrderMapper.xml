@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ryans.mapper.TbSeckillOrderMapper">
+    <insert id="insert" parameterType="com.ryans.entity.TbSeckillOrder">
+        insert into tb_order (order_status, order_description, user_id, update_time)
+        values
+        (#{orderStatus},  #{orderDescription}, #{userId}, #{update});
+    </insert>
+</mapper>
