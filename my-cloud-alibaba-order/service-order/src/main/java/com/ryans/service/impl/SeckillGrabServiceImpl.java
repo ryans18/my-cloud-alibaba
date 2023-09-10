@@ -1,9 +1,9 @@
 package com.ryans.service.impl;
 
 import com.ryans.entity.TbInventory;
-import com.ryans.entity.TbOrder;
+import com.ryans.entity.TbSeckillOrder;
 import com.ryans.mapper.TbInventoryMapper;
-import com.ryans.mapper.TbOrderMapper;
+import com.ryans.mapper.TbSeckillOrderMapper;
 import com.ryans.service.SeckillGrabService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class SeckillGrabServiceImpl implements SeckillGrabService {
     @Autowired
     private TbInventoryMapper tbInventoryMapper;
     @Autowired
-    private TbOrderMapper tbOrderMapper;
+    private TbSeckillOrderMapper tbSeckillOrderMapper;
 
     @Override
     public boolean grab(int goodsId, int userId) {
@@ -39,11 +39,11 @@ public class SeckillGrabServiceImpl implements SeckillGrabService {
             // 扣减库存
             tbInventoryMapper.reduceInventory(tbInventory);
             // 新增订单
-            TbOrder tbOrder = new TbOrder();
+            TbSeckillOrder tbOrder = new TbSeckillOrder();
             tbOrder.setOrderDescription("用户 "+userId + " 抢到了华为Mate60 pro手机");
             tbOrder.setOrderStatus(1);
             tbOrder.setUserId(userId);
-            tbOrderMapper.insert(tbOrder);
+            tbSeckillOrderMapper.insert(tbOrder);
         }
         return false;
     }

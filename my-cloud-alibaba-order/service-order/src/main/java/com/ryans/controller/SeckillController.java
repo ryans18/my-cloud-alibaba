@@ -1,7 +1,11 @@
 package com.ryans.controller;
 
+import com.ryans.service.SeckillService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -10,11 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
  * Introduction：
  */
 @RestController
+@RequestMapping("/seckill")
 public class SeckillController {
+
+    @Autowired
+    // 无锁
+    @Qualifier("seckillNoLockService")
+    private SeckillService seckillService;
 
     @GetMapping("/do/{goodsId}")
     public String orderMysql(@PathVariable("goodsId") int goodsId, int userId) {
         System.out.println("goodsId: " + goodsId + "userId: " + userId);
+        seckillService.grabOrder(goodsId, userId);
         return "";
     }
 }
