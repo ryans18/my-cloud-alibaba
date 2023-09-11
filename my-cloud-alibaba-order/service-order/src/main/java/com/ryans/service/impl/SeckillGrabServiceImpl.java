@@ -33,7 +33,7 @@ public class SeckillGrabServiceImpl implements SeckillGrabService {
             e.printStackTrace();
         }
         // 拿到库存
-        int num = tbInventory.getNum().intValue();
+        int num = tbInventory.getNum();
         System.out.println("库存 num：" + num);
         if (num > 0) {
             // 扣减库存
@@ -44,6 +44,7 @@ public class SeckillGrabServiceImpl implements SeckillGrabService {
             tbOrder.setOrderStatus(1);
             tbOrder.setUserId(userId);
             tbSeckillOrderMapper.insert(tbOrder);
+            return true;
         }
         return false;
     }

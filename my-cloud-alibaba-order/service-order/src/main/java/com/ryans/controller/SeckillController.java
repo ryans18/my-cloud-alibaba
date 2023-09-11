@@ -18,8 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class SeckillController {
 
     @Autowired
-    // 无锁
-    @Qualifier("seckillNoLockService")
+//    @Qualifier("seckillNoLockService")  // 无锁
+//    @Qualifier("seckillJvmLockService")    // Jvm锁
+    @Qualifier("seckillMysqlLockService")    // MySql分布式锁锁
     private SeckillService seckillService;
 
     @GetMapping("/do/{goodsId}")

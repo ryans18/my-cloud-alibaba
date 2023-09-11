@@ -12,7 +12,6 @@ import java.util.Date;
  * Date：Created in 2023/9/10 22:36
  * Introduction：
  */
-@Mapper
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Result;
 
 import java.util.Date;
 
@@ -12,7 +13,6 @@ import java.util.Date;
  * Date：Created in 2023/9/10 22:29
  * Introduction：
  */
-@Mapper
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

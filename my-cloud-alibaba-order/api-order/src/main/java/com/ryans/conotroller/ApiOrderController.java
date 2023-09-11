@@ -3,6 +3,7 @@ package com.ryans.conotroller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -12,14 +13,14 @@ import org.springframework.web.client.RestTemplate;
  * Introduction：
  */
 @RestController
+@RequestMapping("/seckill")
 public class ApiOrderController {
 
     @Autowired
     private RestTemplate restTemplate;
-    @GetMapping("/do/{orderId}")
-    public String orderMysql(@PathVariable("orderId") int orderId, int userId) {
-        String url = "http://service-order" + "/seckill/do/" + orderId + "?userId="+ userId;
-        restTemplate.getForObject(url, String.class);
-        return "成功";
+    @GetMapping("/do/{goodsId}")
+    public String orderMysql(@PathVariable("goodsId") int goodsId, int userId) {
+        String url = "http://service-order" + "/seckill/do/" + goodsId + "?userId="+ userId;
+        return restTemplate.getForObject(url, String.class);
     }
 }
