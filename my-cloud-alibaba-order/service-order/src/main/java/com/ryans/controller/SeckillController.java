@@ -20,7 +20,8 @@ public class SeckillController {
     @Autowired
 //    @Qualifier("seckillNoLockService")  // 无锁
 //    @Qualifier("seckillJvmLockService")    // Jvm锁
-    @Qualifier("seckillMysqlLockService")    // MySql分布式锁锁
+//    @Qualifier("seckillMysqlLockService")    // MySql分布式锁锁
+    @Qualifier("seckillRedissonRedLockLockService")
     private SeckillService seckillService;
 
     @GetMapping("/do/{goodsId}")
